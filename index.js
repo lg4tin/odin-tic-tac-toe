@@ -1,3 +1,5 @@
+let turnHeader = document.querySelector('.turn');
+
 const gameboard = (() => {
   let board = [
     '', '', '',
@@ -18,6 +20,8 @@ const gameboard = (() => {
           boardDivs[i].innerText = 'O';
           controlFlow.turn = 'X';
         }
+
+        turnHeader.innerText = `${controlFlow.turn}'s Turn`;
       })
     }
   }
@@ -29,7 +33,15 @@ const controlFlow = (() => {
 
   
 
-  return {turn};
+  const whosTurn = () => {
+    if (turn === 'X') {
+      turnHeader.innerText = "X's Turn";
+    } else {
+      turnHeader.innerText = "O's Turn";
+    }
+  }
+
+  return {turn, whosTurn};
 })();
 
 const Player = (name) => {
