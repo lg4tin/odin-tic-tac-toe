@@ -2,6 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: burlywood;
 }
 
 .row {
@@ -14,4 +15,10 @@ body {
 .row div {
   border-style: solid;
   padding: 50px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.row div:hover {
+  transform: scale(1.2);
 }
