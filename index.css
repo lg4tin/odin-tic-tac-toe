@@ -23,7 +23,7 @@ body {
 }
 
 .row div:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .buttons {
@@ -41,4 +41,10 @@ body {
 
 .restart {
   padding: 20px 60px;
+  transition: 1s;
+}
+
+.restart:hover {
+  background-color: rgb(255, 38, 0);
+  color: white;
 }

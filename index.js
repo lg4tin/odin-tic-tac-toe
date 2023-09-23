@@ -34,11 +34,13 @@ const gameboard = (() => {
           if (boardDivs[i].innerText === '') {
             boardDivs[i].innerText = 'X';
             controlFlow.turn = 'O';
+            controlFlow.whoWon();
           }
         } else {
           if (boardDivs[i].innerText === '') {
             boardDivs[i].innerText = 'O';
             controlFlow.turn = 'X';
+            controlFlow.whoWon();
           }
         }
         turnHeader.innerText = `${controlFlow.turn}'s Turn`;
@@ -72,7 +74,22 @@ const controlFlow = (() => {
     })
   }
 
-  return {turn, checkWin};
+  const checkTie = () => {
+    let divs = Array.from(gameboard.boardDivs);
+    return divs.every(div => div.textContent != '');
+  }
+
+  const whoWon = () => {
+    if (checkWin('X') == true) {
+      alert('X Wins')
+    } else if (checkWin('O') == true) {
+      alert('O Wins');
+    } else if (checkTie() == true && checkWin('X') == false && checkWin('O') == false) {
+      alert('Tie');
+    }
+  }
+
+  return {turn, checkWin, whoWon, checkTie};
 })();
 
 const Player = (name) => {
