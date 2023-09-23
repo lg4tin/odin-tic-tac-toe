@@ -24,7 +24,7 @@ const gameboard = (() => {
     '', '', ''
   ];
 
-  let boardDivs = document.querySelectorAll('.row div')
+  let boardDivs = document.querySelectorAll('.row div');
 
   const displayBoard = () => {
     for (let i in boardDivs) {
@@ -52,7 +52,7 @@ const gameboard = (() => {
     }
   }
 
-  return {displayBoard, clearBoard};
+  return {displayBoard, clearBoard, boardDivs};
 })();
 
 const controlFlow = (() => {
@@ -62,9 +62,17 @@ const controlFlow = (() => {
     [0, 1, 2], [3, 4, 5], [6, 7, 8],
     [0, 3, 6], [1, 4, 7], [2, 5, 8],
     [0, 4, 8], [2, 4, 6]
-  ]
+  ];
 
-  return {turn};
+  const checkWin = (turn) => {
+    return winningCombinations.some(combo => {
+      return combo.every(index => {
+        return gameboard.boardDivs[index].textContent == turn;
+      })
+    })
+  }
+
+  return {turn, checkWin};
 })();
 
 const Player = (name) => {

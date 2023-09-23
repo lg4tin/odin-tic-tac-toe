@@ -32,8 +32,13 @@ body {
   margin: 30px;
 }
 
-.buttons button {
+.buttons button,
+.restart {
   padding: 10px 30px;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.restart {
+  padding: 20px 60px;
 }
