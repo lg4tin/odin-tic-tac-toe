@@ -14,11 +14,15 @@ const gameboard = (() => {
       boardDivs[i].textContent = board[i];
       boardDivs[i].addEventListener('click', () => {
         if (controlFlow.turn === 'X') {
-          boardDivs[i].innerText = 'X';
-          controlFlow.turn = 'O';
+          if (boardDivs[i].innerText === '') {
+            boardDivs[i].innerText = 'X';
+            controlFlow.turn = 'O';
+          }
         } else {
-          boardDivs[i].innerText = 'O';
-          controlFlow.turn = 'X';
+          if (boardDivs[i].innerText === '') {
+            boardDivs[i].innerText = 'O';
+            controlFlow.turn = 'X';
+          }
         }
 
         turnHeader.innerText = `${controlFlow.turn}'s Turn`;
