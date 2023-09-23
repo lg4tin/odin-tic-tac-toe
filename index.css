@@ -17,6 +17,9 @@ body {
   padding: 50px;
   cursor: pointer;
   transition: 1s;
+  min-height: 80px;
+  min-width: 80px;
+  text-align: center;
 }
 
 .row div:hover {

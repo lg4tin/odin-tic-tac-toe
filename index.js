@@ -24,7 +24,6 @@ const gameboard = (() => {
             controlFlow.turn = 'X';
           }
         }
-
         turnHeader.innerText = `${controlFlow.turn}'s Turn`;
       })
     }
@@ -35,17 +34,7 @@ const gameboard = (() => {
 const controlFlow = (() => {
   let turn = 'X';
 
-  
-
-  const whosTurn = () => {
-    if (turn === 'X') {
-      turnHeader.innerText = "X's Turn";
-    } else {
-      turnHeader.innerText = "O's Turn";
-    }
-  }
-
-  return {turn, whosTurn};
+  return {turn};
 })();
 
 const Player = (name) => {
