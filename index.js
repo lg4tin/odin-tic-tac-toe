@@ -1,4 +1,16 @@
 let turnHeader = document.querySelector('.turn');
+let x = document.querySelector('.x');
+let o = document.querySelector('.o');
+
+x.addEventListener('click', () => {
+  controlFlow.turn = 'X';
+  turnHeader.innerText = `${controlFlow.turn}'s Turn`;
+})
+
+o.addEventListener('click', () => {
+  controlFlow.turn = 'O';
+  turnHeader.innerText = `${controlFlow.turn}'s Turn`;
+})
 
 const gameboard = (() => {
   let board = [
