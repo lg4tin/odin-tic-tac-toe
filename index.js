@@ -34,13 +34,17 @@ const gameboard = (() => {
           if (boardDivs[i].innerText === '') {
             boardDivs[i].innerText = 'X';
             controlFlow.turn = 'O';
-            controlFlow.whoWon();
+            setTimeout(() => {
+              controlFlow.whoWon();
+            }, 250);
           }
         } else {
           if (boardDivs[i].innerText === '') {
             boardDivs[i].innerText = 'O';
             controlFlow.turn = 'X';
-            controlFlow.whoWon();
+            setTimeout(() => {
+              controlFlow.whoWon();
+            }, 250);
           }
         }
         turnHeader.innerText = `${controlFlow.turn}'s Turn`;
