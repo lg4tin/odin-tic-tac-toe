@@ -20,6 +20,7 @@ body {
   min-height: 80px;
   min-width: 80px;
   text-align: center;
+  font-size: 60px;
 }
 
 .row div:hover {
