@@ -1,17 +1,5 @@
 
-let x = document.querySelector('.x');
-let o = document.querySelector('.o');
 
-
-x.addEventListener('click', () => {
-  controlFlow.turn = 'X';
-  controlFlow.turnHeader.innerText = `${controlFlow.turn}'s Turn`;
-})
-
-o.addEventListener('click', () => {
-  controlFlow.turn = 'O';
-  controlFlow.turnHeader.innerText = `${controlFlow.turn}'s Turn`;
-})
 
 
 
@@ -102,10 +90,25 @@ const controlFlow = (() => {
   return {turn, checkWin, whoWon, checkTie, turnHeader};
 })();
 
-const Player = (name) => {
-  const playerName = name;
+const createPlayer = (() => {
+
+  let x = document.querySelector('.x');
+  let o = document.querySelector('.o');
 
 
-}
+  x.addEventListener('click', () => {
+    controlFlow.turn = 'X';
+    controlFlow.turnHeader.innerText = `${controlFlow.turn}'s Turn`;
+  })
 
-gameboard.displayBoard()
+  o.addEventListener('click', () => {
+    controlFlow.turn = 'O';
+    controlFlow.turnHeader.innerText = `${controlFlow.turn}'s Turn`;
+  })
+
+  return {x, o}
+})();
+  
+gameboard.displayBoard();
+
+
