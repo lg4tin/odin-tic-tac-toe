@@ -25,6 +25,7 @@ body {
 
 .row div:hover {
   transform: scale(1.1);
+  border-color: red;
 }
 
 .buttons {

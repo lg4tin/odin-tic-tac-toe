@@ -17,7 +17,7 @@ const gameboard = (() => {
             controlFlow.turn = 'O';
             setTimeout(() => {
               controlFlow.whoWon();
-            }, 250);
+            }, 100);
           }
         } else {
           if (boardDivs[i].innerText === '') {
@@ -25,7 +25,7 @@ const gameboard = (() => {
             controlFlow.turn = 'X';
             setTimeout(() => {
               controlFlow.whoWon();
-            }, 250);
+            }, 100);
           }
         }
         controlFlow.turnHeader.innerText = `${controlFlow.turn}'s Turn`;
