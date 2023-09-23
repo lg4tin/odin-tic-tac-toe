@@ -1,21 +1,19 @@
-let turnHeader = document.querySelector('.turn');
+
 let x = document.querySelector('.x');
 let o = document.querySelector('.o');
-let restart = document.querySelector('.restart');
+
 
 x.addEventListener('click', () => {
   controlFlow.turn = 'X';
-  turnHeader.innerText = `${controlFlow.turn}'s Turn`;
+  controlFlow.turnHeader.innerText = `${controlFlow.turn}'s Turn`;
 })
 
 o.addEventListener('click', () => {
   controlFlow.turn = 'O';
-  turnHeader.innerText = `${controlFlow.turn}'s Turn`;
+  controlFlow.turnHeader.innerText = `${controlFlow.turn}'s Turn`;
 })
 
-restart.addEventListener('click', () => {
-  gameboard.clearBoard();
-})
+
 
 const gameboard = (() => {
   let board = [
@@ -47,7 +45,7 @@ const gameboard = (() => {
             }, 250);
           }
         }
-        turnHeader.innerText = `${controlFlow.turn}'s Turn`;
+        controlFlow.turnHeader.innerText = `${controlFlow.turn}'s Turn`;
       })
     }
   }
@@ -62,6 +60,14 @@ const gameboard = (() => {
 })();
 
 const controlFlow = (() => {
+  let turnHeader = document.querySelector('.turn');
+
+  let restart = document.querySelector('.restart');
+
+  restart.addEventListener('click', () => {
+    gameboard.clearBoard();
+  })
+
   let turn = 'X';
 
   const winningCombinations = [
@@ -93,7 +99,7 @@ const controlFlow = (() => {
     }
   }
 
-  return {turn, checkWin, whoWon, checkTie};
+  return {turn, checkWin, whoWon, checkTie, turnHeader};
 })();
 
 const Player = (name) => {
